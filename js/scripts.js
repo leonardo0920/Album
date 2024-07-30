@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.name = `trivia-${trivia.id}`;
                     input.value = opcion;
                     input.addEventListener('click', () => {
-                        enviarRespuesta(trivia.id, opcion, trivia.respuesta_correcta);
+                        enviarRespuesta(trivia.id, opcion, trivia.respuesta_correcta, trivia.imagen);
                     });
                     label.appendChild(input);
                     label.appendChild(document.createTextNode(opcion));
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const triviaDiv = radioInput.parentNode.parentNode;
                                 const barajita = document.createElement('div');
                                 barajita.classList.add('barajita');
-                                barajita.innerHTML = `<img src="../img/img1.jpg" alt="Barajita"> ¡Felicidades! Has respondido correctamente.`;
+                                barajita.innerHTML = `<img src="img/${respuesta.imagen}" alt="Barajita"> ¡Felicidades! Has respondido correctamente.`;
                                 triviaDiv.appendChild(barajita);
                                 barajita.style.display = 'block';
                             }
@@ -70,10 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Hubo un error al cargar las trivias. Inténtalo más tarde.');
         });
 
-    function enviarRespuesta(preguntaId, respuesta, respuestaCorrecta) {
+    function enviarRespuesta(preguntaId, respuesta, respuestaCorrecta, imagen) {
         const respuestaData = {
             pregunta_id: preguntaId,
-            respuesta: respuesta
+            respuesta: respuesta,
+            imagen: imagen
         };
 
         fetch('php/trivias.php', {
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!triviaDiv.querySelector('.barajita')) {
                     const barajita = document.createElement('div');
                     barajita.classList.add('barajita');
-                    barajita.innerHTML = `<img src="../img/img1.jpg" alt="Barajita"> ¡Felicidades! Has respondido correctamente.`;
+                    barajita.innerHTML = `<img src="img/${imagen}" alt="Barajita"> ¡Felicidades! Has respondido correctamente.`;
                     triviaDiv.appendChild(barajita);
                     barajita.style.display = 'block';
                 }
@@ -108,4 +109,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-

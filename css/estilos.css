@@ -66,16 +66,7 @@ main {
     background-color: #45a049;
 }
 
-.barajita {
-    display: none;
-    background-color: #ffeb3b;
-    border: 1px solid #ffd700;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0;
-    width: 80%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+
 
 footer {
     background-color: #333;
@@ -97,8 +88,26 @@ footer {
     min-width: 250px;
 }
 
+.barajita {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
 .barajita img {
-    max-width: 100px;
-    border-radius: 8px;
-    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.barajita p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
 }
